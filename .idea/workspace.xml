@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="57b5f8ae-036f-4f4c-a552-146b7918cfcd" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/loukag/Camera/Camera.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/loukag/GameEngine.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/loukag/GameObject/GameObject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/loukag/GameObject/Player.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/loukag/Listener/KeyboardListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/loukag/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/loukag/Map/Block/Block.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/loukag/Map/Chunk.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/loukag/Map/Map.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/loukag/Scene/GameScene.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/loukag/Scene/Scene.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/loukag/Utils/Animator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/loukag/Utils/Sprite.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/textures/blocks/dirt.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/textures/blocks/grass.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/textures/blocks/stone.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/textures/entity/player/player_idle1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/textures/entity/player/player_idle2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/textures/entity/player/player_walk1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/textures/entity/player/player_walk2.png" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2Wm2yzYTKYIFx5SGof2hx2Njns1" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Programmation/Java/WispyRemake/src/main/resources/textures/blocks&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Programmation\Java\WispyRemake\src\main\resources\textures\blocks" />
+      <recent name="D:\Programmation\Java\WispyRemake\src\main\resources" />
+      <recent name="D:\Programmation\Java\WispyRemake\src\main\java\com\loukag" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Programmation\Java\WispyRemake\src\main\resources\textures\entity" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.loukag.Main" />
+      <module name="WispyRemake" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="57b5f8ae-036f-4f4c-a552-146b7918cfcd" name="Changes" comment="" />
+      <created>1697323694963</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1697323694963</updated>
+      <workItem from="1697323696100" duration="3789000" />
+      <workItem from="1697329092763" duration="7000" />
+      <workItem from="1697389500177" duration="4898000" />
+      <workItem from="1697394956768" duration="8204000" />
+      <workItem from="1697417097532" duration="595000" />
+      <workItem from="1697460359190" duration="593000" />
+      <workItem from="1697481129756" duration="272000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
