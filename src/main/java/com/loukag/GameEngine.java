@@ -42,7 +42,7 @@ public class GameEngine implements Runnable{
             e.printStackTrace();
         }
     }
-    
+
     @Override
     public void run() {
         long lastTime = System.nanoTime();

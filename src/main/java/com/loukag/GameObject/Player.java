@@ -28,8 +28,8 @@ public class Player extends MovingObject implements Collider {
     private final BufferedImage[] idleSheet;
     private final BufferedImage[] walkingSheet;
     private final ArrayList<Rectangle> bounds;
-    private final double SPEED = 0.05, MAX_GRAVITY = -0.05;
-    private boolean flip;
+    private final double SPEED = 0.05, MAX_GRAVITY = -0.2, GRAVITY = 0.01, JUMP_SPEED = 0.25;
+    private boolean flip, canJump;
     private Rectangle rec;
 
     private State state;
@@ -46,6 +46,7 @@ public class Player extends MovingObject implements Collider {
         walkingSheet = Sprite.loadSheet(Arrays.asList("/textures/entity/player/player_walk1.png", "/textures/entity/player/player_walk2.png").toArray(new String[0]));
         flip = false;
         state = State.IDLE;
+        canJump = false;
         bounds = new ArrayList<>(List.of(new Rectangle(getScreenX(), getScreenY(), GameScene.getBlockSize(), GameScene.getBlockSize() * 2)));
     }
 
@@ -74,9 +75,11 @@ public class Player extends MovingObject implements Collider {
 
         if(Scene.getCurrentScene().checkCollision(rec,8,true)){
             velY = 0;
+            canJump = true;
         }else{
+            canJump = false;
             if(velY > MAX_GRAVITY)
-                velY -= SPEED;
+                velY -= GRAVITY;
         }
 
         posY += velY;
@@ -97,6 +100,11 @@ public class Player extends MovingObject implements Collider {
         if(!KeyboardListener.isKeyPressed(65) && !KeyboardListener.isKeyPressed(68)){
             state = State.IDLE;
             velX = 0;
+        }
+
+        if(KeyboardListener.isKeyPressed(32) && canJump) {
+            velY = JUMP_SPEED;
+            canJump = false;
         }
 
 
