@@ -24,18 +24,28 @@ public abstract class Scene extends JPanel {
         gameEngine = new GameEngine();
     }
 
+    /**
+     * Returns the current scene
+     * @return the current scene
+     */
     public static Scene getCurrentScene() {
         return currentScene;
     }
 
+    /**
+     * Sets the current scene
+     * @param currentScene the scene to set as current
+     */
     public static void setCurrentScene(Scene currentScene) {
         Scene.currentScene = currentScene;
     }
-
     private List<List<GameObject>> layers;
 
     private Camera camera;
 
+    /**
+     * Constructor for Scene
+     */
     public Scene() {
         layers = new ArrayList<>();
 
@@ -52,14 +62,27 @@ public abstract class Scene extends JPanel {
         this.init();
     }
 
+    /**
+     * Initialize the scene
+     */
     public abstract void init();
 
+    /**
+     * Add a GameObject to the scene
+     * @param gameObject GameObject to add
+     * @param layer layer to add the GameObject to (0 to 9)
+     */
     public void addGameObject(GameObject gameObject, int layer) {
         if (layer >= 0 && layer < layers.size()) {
             layers.get(layer).add(gameObject);
         }
     }
 
+    /**
+     * Remove a GameObject from the scene
+     * @param gameObject GameObject to remove
+     * @param layer layer to remove the GameObject from (0 to 9)
+     */
     public void removeGameObject(GameObject gameObject, int layer) {
         if (layer >= 0 && layer < layers.size()) {
             layers.get(layer).remove(gameObject);
@@ -98,16 +121,19 @@ public abstract class Scene extends JPanel {
         g.dispose();
     }
 
+    /**
+     * Paint debug information
+     * @param g Graphics2D object
+     */
     protected void paintDebug(Graphics g) {
         g.setColor(Color.red);
         g.setFont(new Font("Arial", Font.PLAIN, 10));
         g.drawString(GameEngine.getFPS()+" FPS", 10, 20);
     }
 
-
-
-
-    // Méthode pour la logique de jeu
+    /**
+     * Update the scene
+     */
     public void update() {
         for (int i = layers.size() - 1; i >= 0; i--) {
             List<GameObject> layer = layers.get(i);
@@ -117,6 +143,12 @@ public abstract class Scene extends JPanel {
         }
     }
 
+    /**
+     * Check if a collision occurs with Rectangle
+     * @param rec Rectangle to check
+     * @param layer layer to check
+     * @return true if a collision occurs
+     */
     public boolean checkCollision(Rectangle rec, int layer){
         for(GameObject gameObject : layers.get(layer)){
             if(gameObject instanceof Collider other){
@@ -132,6 +164,13 @@ public abstract class Scene extends JPanel {
         return false;
     }
 
+    /**
+     * Check if a collision occurs with Rectangle
+     * @param rec Rectangle to check
+     * @param layer layer to check
+     * @param isSolid if the GameObject is solid
+     * @return true if a collision occurs
+     */
     public boolean checkCollision(Rectangle rec, int layer, boolean isSolid){
         for(GameObject gameObject : layers.get(layer)){
             if(gameObject instanceof Collider other){
@@ -147,10 +186,18 @@ public abstract class Scene extends JPanel {
         return false;
     }
 
+    /**
+     * Set the camera
+     * @param camera Camera to set
+     */
     public void setCamera(Camera camera){
         this.camera = camera;
     }
 
+    /**
+     * Get the camera
+     * @return the camera
+     */
     public Camera getCamera(){
         return camera;
     }

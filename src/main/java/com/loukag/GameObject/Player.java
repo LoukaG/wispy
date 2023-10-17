@@ -34,8 +34,13 @@ public class Player extends MovingObject implements Collider {
 
     private State state;
 
-    public Player(){
-        super(150, 150);
+    /**
+     * Constructor for Player. Should only be called once.
+     * @param posX x position
+     * @param posY y position
+     */
+    public Player(int posX, int posY){
+        super(posX, posY);
         anim = new Animator(2, 10);
         idleSheet = Sprite.loadSheet(new String[]{"/textures/entity/player/player_idle1.png", "/textures/entity/player/player_idle2.png"});
         walkingSheet = Sprite.loadSheet(Arrays.asList("/textures/entity/player/player_walk1.png", "/textures/entity/player/player_walk2.png").toArray(new String[0]));
@@ -43,6 +48,7 @@ public class Player extends MovingObject implements Collider {
         state = State.IDLE;
         bounds = new ArrayList<>(List.of(new Rectangle(getScreenX(), getScreenY(), GameScene.getBlockSize(), GameScene.getBlockSize() * 2)));
     }
+
     @Override
     public void render(Graphics2D g) {
 
@@ -59,12 +65,12 @@ public class Player extends MovingObject implements Collider {
 
     @Override
     public void update() {
-        rec = new Rectangle(getScreenX()+GameObject.blockToPixelX(velX), getScreenY(), GameScene.getBlockSize(), GameScene.getBlockSize() * 2);
+        rec = new Rectangle(getScreenX()+GameObject.blockToPixel(velX), getScreenY(), GameScene.getBlockSize(), GameScene.getBlockSize() * 2);
 
         if(Scene.getCurrentScene().checkCollision(rec, 8, true)){
             velX = 0;
         }
-        rec = new Rectangle(getScreenX(), getScreenY()-GameObject.blockToPixelX(velY-SPEED), GameScene.getBlockSize(), GameScene.getBlockSize() * 2);
+        rec = new Rectangle(getScreenX(), getScreenY()-GameObject.blockToPixel(velY-SPEED), GameScene.getBlockSize(), GameScene.getBlockSize() * 2);
 
         if(Scene.getCurrentScene().checkCollision(rec,8,true)){
             velY = 0;

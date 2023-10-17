@@ -8,6 +8,10 @@ public class GameEngine implements Runnable{
     private static final long TARGET_TIME = 1000000000 / TARGET_FPS;
     private static int FPS = 0;
 
+    /**
+     * Returns the current FPS
+     * @return the current FPS
+     */
     public static int getFPS() {
         return FPS;
     }
@@ -16,6 +20,9 @@ public class GameEngine implements Runnable{
     private Thread thread;
 
 
+    /**
+     * Starts the game engine
+     */
     public synchronized void start(){
         if(isRunning) return;
         isRunning = true;
@@ -23,6 +30,9 @@ public class GameEngine implements Runnable{
         thread.start();
     }
 
+    /**
+     * Stops the game engine
+     */
     public synchronized void stop(){
         if(!isRunning) return;
         isRunning = false;
@@ -32,7 +42,7 @@ public class GameEngine implements Runnable{
             e.printStackTrace();
         }
     }
-
+    
     @Override
     public void run() {
         long lastTime = System.nanoTime();

@@ -62,13 +62,20 @@ public abstract class GameObject {
         return (int) (Chunk.getChunkHeight()* GameScene.getBlockSize()-((posY * GameScene.getBlockSize())));
     }
 
-    public static int blockToPixelX(double block){
+    /**
+     * Convert a block position to a pixel position
+     * @param block block position
+     * @return pixel position
+     */
+    public static int blockToPixel(double block){
         return (int) (block* GameScene.getBlockSize());
     }
-    public static int blockToPixelY(double block){
-        return (int) (Chunk.getChunkHeight()* GameScene.getBlockSize()-((block * GameScene.getBlockSize())));
-    }
 
+    /**
+     * Convert a pixel position to a block position
+     * @param pixel pixel position
+     * @return block position
+     */
     public static double pixelToBlock(int pixel){
         return (double) (Chunk.getChunkHeight() * GameScene.getBlockSize() - pixel) / GameScene.getBlockSize();
     }

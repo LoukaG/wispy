@@ -2,8 +2,15 @@ package com.loukag.Listener;
 
 import java.awt.event.KeyAdapter;
 
+/**
+ * KeyboardListener class
+ * Listens for keyboard input
+ */
 public class KeyboardListener extends KeyAdapter {
 
+        /**
+         * Array of booleans that represent whether a key is pressed or not
+         */
         public static boolean[] keys = new boolean[256];
 
         @Override

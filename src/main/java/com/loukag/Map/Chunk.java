@@ -25,11 +25,21 @@ public class Chunk implements Collider {
     private Block[][] blocks;
     private int offset;
 
+    /**
+     * Constructor for Chunk
+     * @param offset offset of the chunk from the origin
+     */
     public Chunk(int offset){
         this.offset = offset;
         blocks = new Block[CHUNK_WIDTH][CHUNK_HEIGHT];
     }
 
+    /**
+     * Get the block at the specified position
+     * @param x x position (in blocks)
+     * @param y y position (in blocks)
+     * @return the block at the specified position
+     */
     public Block getBlock(int x, int y){
         y = CHUNK_HEIGHT - y - 1;
         if(x < 0 || x >= CHUNK_WIDTH || y < 0 || y >= CHUNK_HEIGHT)
@@ -37,6 +47,12 @@ public class Chunk implements Collider {
         return blocks[x][y];
     }
 
+    /**
+     * Set the block at the specified position
+     * @param x x position in blocks
+     * @param y y position in blocks
+     * @param block block to set
+     */
     public void setBlock(int x, int y, Block block){
         blocks[x][y] = block;
     }
@@ -62,6 +78,10 @@ public class Chunk implements Collider {
         }
     }
 
+    /**
+     * Render the chunk
+     * @param g Graphics2D object
+     */
     public void draw(Graphics2D g){
         for(int x = 0; x < CHUNK_WIDTH; x++) {
             for (int y = 0; y < CHUNK_HEIGHT; y++) {
@@ -78,6 +98,10 @@ public class Chunk implements Collider {
 
     }
 
+    /**
+     * Get the offset of the chunk
+     * @return offset of the chunk
+     */
     public int getOffset(){
         return offset;
     }

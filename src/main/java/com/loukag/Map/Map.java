@@ -14,26 +14,23 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class Map extends GameObject implements Collider {
-
-    private static int MAX_HEIGHT = 50;
-
-    public static int getMaxHeight(){
-        return MAX_HEIGHT;
-    }
-
+    /**
+     * TODO implement map generation
+     * @param seed seed for the map
+     * @return the generated map
+     */
     public static Map GenerateMap(long seed){
         PerlinNoiseGenerator.newBuilder().setSeed(seed).setInterpolation(Interpolation.COSINE).build();
 
-
-
         return null;
     }
-    public String name;
-
-    public Chunk[] chunks;
+    private String name;
+    private Chunk[] chunks;
     private JNoise noise;
 
-
+    /**
+     * Constructor for Map
+     */
     public Map(){
         super(0,0);
        noise =  JNoise.newBuilder().perlin(System.currentTimeMillis(), Interpolation.CUBIC, FadeFunction.IMPROVED_PERLIN_NOISE)
@@ -49,10 +46,21 @@ public class Map extends GameObject implements Collider {
 
     }
 
+    /**
+     * Get the noise at the specified position
+     * @param x x position
+     * @return the noise at the specified position
+     */
     public double getNoise(int x){
         return noise.evaluateNoise(x);
     }
 
+    /**
+     * Get the block at the specified position
+     * @param x x position
+     * @param y y position
+     * @return the block at the specified position
+     */
     public Block getBlock(int x, int y){
 
         int chunkIndex = x / Chunk.getChunkWidth();
@@ -69,6 +77,10 @@ public class Map extends GameObject implements Collider {
         return chunk.getBlock(x - chunkIndex, y);
     }
 
+    /**
+     * Render the map
+     * @param g Graphics2D object
+     */
     public void render(Graphics2D g){
 
         for (Chunk chunk : chunks) {

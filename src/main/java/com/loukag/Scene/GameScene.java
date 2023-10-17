@@ -21,7 +21,7 @@ public class GameScene extends Scene{
 
     @Override
     public void init() {
-        player = new Player();
+        player = new Player(150,150);
         map = new Map();
         this.addGameObject(player, 2);
         this.addGameObject(map, 8);
