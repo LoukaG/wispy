@@ -15,12 +15,14 @@ public class KeyboardListener extends KeyAdapter {
 
         @Override
         public void keyPressed(java.awt.event.KeyEvent e) {
-            keys[e.getKeyCode()] = true;
+            if(e.getKeyCode() < 256)
+                keys[e.getKeyCode()] = true;
         }
 
         @Override
         public void keyReleased(java.awt.event.KeyEvent e) {
-            keys[e.getKeyCode()] = false;
+            if(e.getKeyCode() < 256)
+                keys[e.getKeyCode()] = false;
         }
 
         public static boolean isKeyPressed(int keyCode) {

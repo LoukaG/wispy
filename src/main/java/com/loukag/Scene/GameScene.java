@@ -27,9 +27,19 @@ public class GameScene extends Scene{
         this.addGameObject(map, 8);
     }
 
+    @Override
+    public void beforeUpdate() {
+
+    }
+
+    @Override
+    public void beforeRender(Graphics2D g) {
+        Scene.getCurrentScene().getCamera().setPosSmooth(player.getScreenX()-350, player.getScreenY()-350, 10);
+    }
+
+
     protected void paintDebug(Graphics g) {
         DecimalFormat df = new DecimalFormat("0.00");
-        getCamera().setPos(player.getScreenX()-350, player.getScreenY()-350);
         g.setColor(Color.red);
         g.setFont(new Font("Arial", Font.PLAIN, 10));
         g.drawString(GameEngine.getFPS()+" FPS", 10, 20);

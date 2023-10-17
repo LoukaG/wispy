@@ -34,6 +34,17 @@ public class Camera {
     }
 
     /**
+     * Set the position of the camera smoothly
+     * @param x x position (in pixels)
+     * @param y y position (in pixels)
+     * @param smoothness smoothness of the movement
+     */
+    public void setPosSmooth(int x, int y, int smoothness){
+        this.posX = (posX * (smoothness - 1) + x) / smoothness;
+        this.posY = (posY * (smoothness - 1) + y) / smoothness;
+    }
+
+    /**
      * Get the x position of the camera
      * @return x position (in pixels)
      */

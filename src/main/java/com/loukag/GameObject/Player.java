@@ -28,7 +28,7 @@ public class Player extends MovingObject implements Collider {
     private final BufferedImage[] idleSheet;
     private final BufferedImage[] walkingSheet;
     private final ArrayList<Rectangle> bounds;
-    private final double SPEED = 0.05, MAX_GRAVITY = -0.2, GRAVITY = 0.01, JUMP_SPEED = 0.25;
+    private final double SPEED = 0.064, MAX_GRAVITY = -0.32, GRAVITY = 0.016 , JUMP_SPEED = 0.32;
     private boolean flip, canJump;
     private Rectangle rec;
 
@@ -66,6 +66,7 @@ public class Player extends MovingObject implements Collider {
 
     @Override
     public void update() {
+
         rec = new Rectangle(getScreenX()+GameObject.blockToPixel(velX), getScreenY(), GameScene.getBlockSize(), GameScene.getBlockSize() * 2);
 
         if(Scene.getCurrentScene().checkCollision(rec, 8, true)){

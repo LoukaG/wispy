@@ -7,17 +7,10 @@
     <list default="true" id="57b5f8ae-036f-4f4c-a552-146b7918cfcd" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/loukag/Camera/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/loukag/Camera/Camera.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/loukag/GameEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/loukag/GameEngine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/loukag/GameObject/Features/Collider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/loukag/GameObject/Features/Collider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/loukag/GameObject/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/loukag/GameObject/GameObject.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/loukag/GameObject/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/loukag/GameObject/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/loukag/Listener/KeyboardListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/loukag/Listener/KeyboardListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/loukag/Map/Block/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/loukag/Map/Block/Block.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/loukag/Map/Chunk.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/loukag/Map/Chunk.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/loukag/Map/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/loukag/Map/Map.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/loukag/Scene/GameScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/loukag/Scene/GameScene.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/loukag/Scene/Scene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/loukag/Scene/Scene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/loukag/Utils/Sprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/loukag/Utils/Sprite.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,8 +20,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -113,7 +106,7 @@
       <workItem from="1697495231339" duration="1529000" />
       <workItem from="1697497580139" duration="1421000" />
       <workItem from="1697503123769" duration="1840000" />
-      <workItem from="1697561893102" duration="8288000" />
+      <workItem from="1697561893102" duration="12084000" />
     </task>
     <servers />
   </component>

@@ -4,11 +4,8 @@ import com.loukag.Camera.Camera;
 import com.loukag.GameEngine;
 import com.loukag.GameObject.Features.Collider;
 import com.loukag.GameObject.GameObject;
-import com.loukag.GameObject.Player;
 import com.loukag.Listener.KeyboardListener;
 import com.loukag.Main;
-import com.loukag.Map.Map;
-import org.w3c.dom.css.Rect;
 
 import javax.swing.*;
 import java.awt.*;
@@ -40,7 +37,6 @@ public abstract class Scene extends JPanel {
         Scene.currentScene = currentScene;
     }
     private List<List<GameObject>> layers;
-
     private Camera camera;
 
     /**
@@ -68,6 +64,17 @@ public abstract class Scene extends JPanel {
     public abstract void init();
 
     /**
+     * Called before the scene is updated
+     */
+    public abstract void beforeUpdate();
+
+    /**
+     * Called before the scene is rendered
+     * @param g Graphics2D object
+     */
+    public abstract void beforeRender(Graphics2D g);
+
+    /**
      * Add a GameObject to the scene
      * @param gameObject GameObject to add
      * @param layer layer to add the GameObject to (0 to 9)
@@ -92,9 +99,11 @@ public abstract class Scene extends JPanel {
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
+        Graphics2D g2d = (Graphics2D) g;
+        this.beforeRender(g2d);
         g.translate(-camera.getPosX(), -camera.getPosY());
 
-        Graphics2D g2d = (Graphics2D) g;
+
 
         for (int i = layers.size() - 1; i >= 0; i--) {
             List<GameObject> layer = layers.get(i);
@@ -135,6 +144,7 @@ public abstract class Scene extends JPanel {
      * Update the scene
      */
     public void update() {
+        this.beforeUpdate();
         for (int i = layers.size() - 1; i >= 0; i--) {
             List<GameObject> layer = layers.get(i);
             for (GameObject gameObject : layer) {
@@ -201,4 +211,5 @@ public abstract class Scene extends JPanel {
     public Camera getCamera(){
         return camera;
     }
+
 }
