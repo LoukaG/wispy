@@ -59,7 +59,18 @@ public abstract class GameObject {
      * @return y position in pixels
      */
     public int getScreenY(){
-        return (int) ((int) Chunk.getChunkHeight()* GameScene.getBlockSize()-((posY * GameScene.getBlockSize())));
+        return (int) (Chunk.getChunkHeight()* GameScene.getBlockSize()-((posY * GameScene.getBlockSize())));
+    }
+
+    public static int blockToPixelX(double block){
+        return (int) (block* GameScene.getBlockSize());
+    }
+    public static int blockToPixelY(double block){
+        return (int) (Chunk.getChunkHeight()* GameScene.getBlockSize()-((block * GameScene.getBlockSize())));
+    }
+
+    public static double pixelToBlock(int pixel){
+        return (double) (Chunk.getChunkHeight() * GameScene.getBlockSize() - pixel) / GameScene.getBlockSize();
     }
 
 

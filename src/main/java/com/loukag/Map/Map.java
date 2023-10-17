@@ -1,5 +1,6 @@
 package com.loukag.Map;
 
+import com.loukag.GameObject.Features.Collider;
 import com.loukag.GameObject.GameObject;
 import com.loukag.Map.Block.Block;
 import com.loukag.Scene.GameScene;
@@ -10,8 +11,9 @@ import de.articdive.jnoise.generators.noisegen.perlin.PerlinNoiseGenerator;
 import de.articdive.jnoise.pipeline.JNoise;
 
 import java.awt.*;
+import java.util.ArrayList;
 
-public class Map extends GameObject {
+public class Map extends GameObject implements Collider {
 
     private static int MAX_HEIGHT = 50;
 
@@ -34,7 +36,7 @@ public class Map extends GameObject {
 
     public Map(){
         super(0,0);
-       noise =  JNoise.newBuilder().perlin(2555, Interpolation.CUBIC, FadeFunction.IMPROVED_PERLIN_NOISE)
+       noise =  JNoise.newBuilder().perlin(System.currentTimeMillis(), Interpolation.CUBIC, FadeFunction.IMPROVED_PERLIN_NOISE)
                .scale(1 / 50.0)
                .addModifier(v -> (v + 1) / 2.0)
                .clamp(0.0, 1.0)
@@ -77,5 +79,26 @@ public class Map extends GameObject {
     @Override
     public void update() {
 
+    }
+
+    @Override
+    public ArrayList<Rectangle> getBounds() {
+        ArrayList<Rectangle> colliders = new ArrayList<>();
+
+        for (Chunk chunk : chunks) {
+            colliders.addAll(chunk.getBounds());
+        }
+
+        return colliders;
+    }
+
+    @Override
+    public void onCollision(Collider collider) {
+
+    }
+
+    @Override
+    public boolean isSolid() {
+        return true;
     }
 }

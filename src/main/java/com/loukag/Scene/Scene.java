@@ -2,10 +2,13 @@ package com.loukag.Scene;
 
 import com.loukag.Camera.Camera;
 import com.loukag.GameEngine;
+import com.loukag.GameObject.Features.Collider;
 import com.loukag.GameObject.GameObject;
 import com.loukag.GameObject.Player;
 import com.loukag.Listener.KeyboardListener;
+import com.loukag.Main;
 import com.loukag.Map.Map;
+import org.w3c.dom.css.Rect;
 
 import javax.swing.*;
 import java.awt.*;
@@ -69,18 +72,27 @@ public abstract class Scene extends JPanel {
         g.translate(-camera.getPosX(), -camera.getPosY());
 
         Graphics2D g2d = (Graphics2D) g;
-        g2d.setColor(Color.BLACK);
-        g2d.fillRect(0, 0 ,1250, 720);
 
         for (int i = layers.size() - 1; i >= 0; i--) {
             List<GameObject> layer = layers.get(i);
             for (GameObject gameObject : layer) {
                 gameObject.render(g2d);
+
+                if(Main.DEBUG){
+                    g2d.setColor(Color.red);
+                    if(gameObject instanceof Collider collider){
+                        for(Rectangle rect : collider.getBounds()){
+                            g2d.draw(rect);
+                        }
+                    }
+                }
+
             }
         }
 
 
         g.translate(camera.getPosX(), camera.getPosY());
+
         paintDebug(g2d);
 
         g.dispose();
@@ -103,6 +115,36 @@ public abstract class Scene extends JPanel {
                 gameObject.update();
             }
         }
+    }
+
+    public boolean checkCollision(Rectangle rec, int layer){
+        for(GameObject gameObject : layers.get(layer)){
+            if(gameObject instanceof Collider other){
+                for(Rectangle rec2 : other.getBounds()){
+                    if(rec.intersects(rec2)){
+                        return true;
+                    }
+
+                }
+            }
+        }
+
+        return false;
+    }
+
+    public boolean checkCollision(Rectangle rec, int layer, boolean isSolid){
+        for(GameObject gameObject : layers.get(layer)){
+            if(gameObject instanceof Collider other){
+                if(other.isSolid() == isSolid & other.getBounds() != null)
+                    for(Rectangle rec2 : other.getBounds()){
+                        if(rec.intersects(rec2)){
+                            return true;
+                        }
+                    }
+            }
+        }
+
+        return false;
     }
 
     public void setCamera(Camera camera){
