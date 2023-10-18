@@ -8,10 +8,11 @@ import com.loukag.Scene.Scene;
 import de.articdive.jnoise.pipeline.JNoise;
 
 import java.awt.*;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Chunk implements Collider {
+public class Chunk implements Collider, Serializable {
     private static final int CHUNK_WIDTH = 16, CHUNK_HEIGHT = 256;
 
     public static int getChunkWidth(){
@@ -129,5 +130,22 @@ public class Chunk implements Collider {
     @Override
     public boolean isSolid() {
         return false;
+    }
+
+    public void exportToFile(String mapName) {
+        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(System.getenv("APPDATA") + "/.wispy8bit/saves/"+mapName+"/chunks/"+offset+".chunk"))) {
+            out.writeObject(this);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static Chunk importFromFile(String mapName, int offset){
+        try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(System.getenv("APPDATA") + "/.wispy8bit/saves/"+mapName+"/chunks/"+offset+".chunk"))) {
+            return (Chunk) in.readObject();
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

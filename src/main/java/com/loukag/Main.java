@@ -7,7 +7,7 @@ import com.loukag.Utils.Sprite;
 import javax.swing.*;
 
 public class Main {
-    public static boolean DEBUG = false;
+    public static boolean DEBUG = true;
     public static void main(String[] args) {
         System.setProperty("sun.java2d.d3d", "false");
         System.setProperty("sun.java2d.uiScale", "1.0");

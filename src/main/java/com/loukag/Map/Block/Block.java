@@ -8,7 +8,7 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public enum Block {
+public enum Block{
     AIR((BufferedImage) null, false),
     GRASS("/textures/blocks/grass.png", true),
     DIRT("/textures/blocks/dirt.png", true),

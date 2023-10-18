@@ -36,7 +36,7 @@ public abstract class Scene extends JPanel {
     public static void setCurrentScene(Scene currentScene) {
         Scene.currentScene = currentScene;
     }
-    private List<List<GameObject>> layers;
+    private final List<List<GameObject>> layers;
     private Camera camera;
 
     /**

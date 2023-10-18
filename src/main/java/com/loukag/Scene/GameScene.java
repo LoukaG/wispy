@@ -22,7 +22,7 @@ public class GameScene extends Scene{
     @Override
     public void init() {
         player = new Player(150,150);
-        map = new Map();
+        map = new Map("HelloWorld");
         this.addGameObject(player, 2);
         this.addGameObject(map, 8);
     }
@@ -49,5 +49,9 @@ public class GameScene extends Scene{
 
     public Map getMap(){
         return map;
+    }
+
+    public Player getPlayer(){
+        return player;
     }
 }

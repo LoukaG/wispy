@@ -62,6 +62,10 @@ public abstract class GameObject {
         return (int) (Chunk.getChunkHeight()* GameScene.getBlockSize()-((posY * GameScene.getBlockSize())));
     }
 
+    public double distance(int posX, int posY){
+        return Math.sqrt(Math.pow(posX - getScreenX(), 2) + Math.pow(posY - getScreenY(), 2));
+    }
+
     /**
      * Convert a block position to a pixel position
      * @param block block position
