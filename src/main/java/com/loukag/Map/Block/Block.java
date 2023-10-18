@@ -1,6 +1,7 @@
 package com.loukag.Map.Block;
 
 import com.loukag.Scene.GameScene;
+import com.loukag.Scene.Scene;
 import com.loukag.Utils.Sprite;
 
 import java.awt.*;
@@ -53,6 +54,7 @@ public enum Block{
      */
     public void draw(Graphics2D g, int x, int y){
         if(texture != null)
-            g.drawImage(texture, x, y, GameScene.getBlockSize(), GameScene.getBlockSize(), null);
+            if(Scene.getCurrentScene().getCamera().isOnCamera(new Rectangle(x, y, GameScene.getBlockSize(), GameScene.getBlockSize())))
+                g.drawImage(texture, x, y, GameScene.getBlockSize(), GameScene.getBlockSize(), null);
     }
 }

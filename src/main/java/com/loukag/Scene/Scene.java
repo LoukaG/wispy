@@ -2,6 +2,7 @@ package com.loukag.Scene;
 
 import com.loukag.Camera.Camera;
 import com.loukag.GameEngine;
+import com.loukag.GameFrame;
 import com.loukag.GameObject.Features.Collider;
 import com.loukag.GameObject.GameObject;
 import com.loukag.Listener.KeyboardListener;
@@ -16,6 +17,8 @@ public abstract class Scene extends JPanel {
 
     public static final GameEngine gameEngine;
     private static Scene currentScene;
+    private int screenW, screenH;
+    public static GameFrame gameFrame;
 
     static{
         gameEngine = new GameEngine();
@@ -27,6 +30,19 @@ public abstract class Scene extends JPanel {
      */
     public static Scene getCurrentScene() {
         return currentScene;
+    }
+
+    public static int getScreenW(){
+        return currentScene.screenW;
+    }
+
+    public static int getScreenH(){
+        return currentScene.screenH;
+    }
+
+    public static void setScreenSize(int w, int h){
+        currentScene.screenW = w;
+        currentScene.screenH = h;
     }
 
     /**
@@ -56,6 +72,11 @@ public abstract class Scene extends JPanel {
         this.addKeyListener(new KeyboardListener());
         this.camera = new Camera(0,0);
         this.init();
+    }
+
+    @Override
+    public Dimension getPreferredSize() {
+        return new Dimension(1250, 720);
     }
 
     /**
@@ -125,7 +146,8 @@ public abstract class Scene extends JPanel {
 
         g.translate(camera.getPosX(), camera.getPosY());
 
-        paintDebug(g2d);
+        if(Main.DEBUG)
+            paintDebug(g2d);
 
         g.dispose();
     }

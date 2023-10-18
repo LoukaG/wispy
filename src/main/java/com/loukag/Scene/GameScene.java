@@ -9,20 +9,24 @@ import java.awt.*;
 import java.text.DecimalFormat;
 
 public class GameScene extends Scene{
-    private static final int BLOCK_SIZE = 32;
+    private static int blockSize = 32;
 
     private Player player;
 
     private Map map;
 
     public static int getBlockSize(){
-        return BLOCK_SIZE;
+        return blockSize;
+    }
+
+    public static void setBlockSize(int blockSize){
+        GameScene.blockSize = blockSize;
     }
 
     @Override
     public void init() {
-        player = new Player(150,150);
-        map = new Map("HelloWorld");
+        player = new Player(64,150);
+        map = Map.createMap("HelloWorld");
         this.addGameObject(player, 2);
         this.addGameObject(map, 8);
     }
@@ -34,7 +38,7 @@ public class GameScene extends Scene{
 
     @Override
     public void beforeRender(Graphics2D g) {
-        Scene.getCurrentScene().getCamera().setPosSmooth(player.getScreenX()-350, player.getScreenY()-350, 10);
+        Scene.getCurrentScene().getCamera().setPosSmooth(player.getScreenX()-((Scene.getScreenW()/2)-player.getBounds().get(0).width/2), player.getScreenY()-((Scene.getScreenH()/2)-player.getBounds().get(0).height/2), 10);
     }
 
 

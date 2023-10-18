@@ -21,16 +21,25 @@ import java.util.Arrays;
 
 public class Map extends GameObject implements Collider {
     /**
-     * TODO implement map generation
+     * Create a map with a specified seed
+     * @param mapName name of the map
      * @param seed seed for the map
      * @return the generated map
      */
-    public static Map GenerateMap(long seed){
-        PerlinNoiseGenerator.newBuilder().setSeed(seed).setInterpolation(Interpolation.COSINE).build();
+    public static Map createMap(String mapName, long seed){
+        return new Map(mapName, seed);
+    }
 
-        return null;
+    /**
+     * Create a map with a random seed
+     * @param mapName name of the map
+     * @return the generated map
+     */
+    public static Map createMap(String mapName){
+        return new Map(mapName, System.currentTimeMillis());
     }
     private String name;
+    private long seed;
     private Chunk[] chunks;
     private JNoise noise;
     private int chunkOffset=-1, maxChunkOffset=-1;
@@ -38,15 +47,16 @@ public class Map extends GameObject implements Collider {
     /**
      * Constructor for Map
      */
-    public Map(String mapName){
+    private Map(String mapName, long seed){
         super(0,0);
+        this.seed = seed;
         this.name = mapName;
-        noise =  JNoise.newBuilder().perlin(System.currentTimeMillis(), Interpolation.CUBIC, FadeFunction.IMPROVED_PERLIN_NOISE)
+        noise =  JNoise.newBuilder().perlin(seed, Interpolation.CUBIC, FadeFunction.IMPROVED_PERLIN_NOISE)
                .scale(1 / 50.0)
                .addModifier(v -> (v + 1) / 2.0)
                .clamp(0.0, 1.0)
                .build();
-        chunks = new Chunk[16];
+        chunks = new Chunk[8];
 
         File dossier = new File(System.getenv("APPDATA") + "/.wispy8bit/saves/"+name+"/chunks");
         if(!dossier.exists())
@@ -102,6 +112,12 @@ public class Map extends GameObject implements Collider {
 
         g.setColor(Color.blue);
         //g.fill(chunkBound);
+    }
+
+    public void updateBounds(){
+        for (Chunk chunk : chunks) {
+            chunk.calculteBounds();
+        }
     }
 
     /**
@@ -161,13 +177,13 @@ public class Map extends GameObject implements Collider {
         }
         chunks[victimIndex].exportToFile(name);
 
-        System.out.println("export "+victimIndex);
         if(new File(System.getenv("APPDATA") + "/.wispy8bit/saves/"+name+"/chunks/"+newChunkOffset+".chunk").exists()) {
             chunks[victimIndex] = Chunk.importFromFile(name, newChunkOffset);
         }else {
             chunks[victimIndex] = new Chunk(newChunkOffset);
             chunks[victimIndex].generate(noise);
         }
+        this.updateBounds();
     }
 
     private Chunk getLeftmostChunk(){

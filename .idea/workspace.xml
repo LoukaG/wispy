@@ -5,9 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="57b5f8ae-036f-4f4c-a552-146b7918cfcd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/loukag/Map/PlayerData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/loukag/GameFrame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/loukag/Scene/MenuScene.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/fonts/Perfect DOS VGA 437.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/textures/ui/logo.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/loukag/Camera/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/loukag/Camera/Camera.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/loukag/GameObject/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/loukag/GameObject/GameObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/loukag/GameObject/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/loukag/GameObject/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/loukag/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/loukag/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/loukag/Map/Block/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/loukag/Map/Block/Block.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/loukag/Map/Chunk.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/loukag/Map/Chunk.java" afterDir="false" />
@@ -45,30 +50,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Programmation/Java/WispyRemake/src/main/resources/textures/entity/player&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "D:/Programmation/Java/WispyRemake/src/main/resources/fonts",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Programmation\Java\WispyRemake\src\main\resources\fonts" />
+      <recent name="D:\Programmation\Java\WispyRemake\src\main\resources\textures\ui" />
       <recent name="D:\Programmation\Java\WispyRemake\src\main\resources\textures\entity\player" />
       <recent name="D:\Programmation\Java\WispyRemake\src\main\resources\textures\blocks" />
       <recent name="D:\Programmation\Java\WispyRemake\src\main\resources" />
-      <recent name="D:\Programmation\Java\WispyRemake\src\main\java\com\loukag" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Programmation\Java\WispyRemake\src\main\resources\textures\blocks" />
@@ -112,7 +118,7 @@
       <workItem from="1697561893102" duration="16435000" />
       <workItem from="1697591451453" duration="1118000" />
       <workItem from="1697592781447" duration="356000" />
-      <workItem from="1697639785618" duration="5238000" />
+      <workItem from="1697639785618" duration="12495000" />
     </task>
     <servers />
   </component>

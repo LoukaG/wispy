@@ -24,6 +24,7 @@ public class Chunk implements Collider, Serializable {
     }
 
     private Block[][] blocks;
+    private ArrayList<Rectangle> bounds;
     private int offset;
 
     /**
@@ -33,6 +34,7 @@ public class Chunk implements Collider, Serializable {
     public Chunk(int offset){
         this.offset = offset;
         blocks = new Block[CHUNK_WIDTH][CHUNK_HEIGHT];
+        this.bounds = new ArrayList<>();
     }
 
     /**
@@ -77,6 +79,7 @@ public class Chunk implements Collider, Serializable {
 
 
         }
+        calculteBounds();
     }
 
     /**
@@ -84,18 +87,21 @@ public class Chunk implements Collider, Serializable {
      * @param g Graphics2D object
      */
     public void draw(Graphics2D g){
-        for(int x = 0; x < CHUNK_WIDTH; x++) {
-            for (int y = 0; y < CHUNK_HEIGHT; y++) {
-                int posX = (x+offset)*GameScene.getBlockSize();
-                int posY = y*GameScene.getBlockSize();
-                blocks[x][y].draw(g, posX, posY);
+        if(Scene.getCurrentScene().getCamera().isOnCamera(new Rectangle(offset*GameScene.getBlockSize(), 0, CHUNK_WIDTH*GameScene.getBlockSize(), CHUNK_HEIGHT*GameScene.getBlockSize()))){
+            for(int x = 0; x < CHUNK_WIDTH; x++) {
+                for (int y = 0; y < CHUNK_HEIGHT; y++) {
+                    int posX = (x+offset)*GameScene.getBlockSize();
+                    int posY = y*GameScene.getBlockSize();
+                    blocks[x][y].draw(g, posX, posY);
+                }
+            }
+
+            if(Main.DEBUG){
+                g.setColor(Color.MAGENTA);
+                g.drawRect(offset*GameScene.getBlockSize(), 0, CHUNK_WIDTH*GameScene.getBlockSize(), CHUNK_HEIGHT*GameScene.getBlockSize());
             }
         }
 
-        if(Main.DEBUG){
-            g.setColor(Color.MAGENTA);
-            g.drawRect(offset*GameScene.getBlockSize(), 0, CHUNK_WIDTH*GameScene.getBlockSize(), CHUNK_HEIGHT*GameScene.getBlockSize());
-        }
 
     }
 
@@ -109,17 +115,32 @@ public class Chunk implements Collider, Serializable {
 
     @Override
     public ArrayList<Rectangle> getBounds() {
-        ArrayList<Rectangle> rec = new ArrayList<>();
+        return bounds;
+    }
+
+    public void calculteBounds(){
+        bounds = new ArrayList<>();
         for(int x = 0; x < CHUNK_WIDTH; x++) {
             for (int y = 0; y < CHUNK_HEIGHT; y++) {
                 int posX = (x+offset)*GameScene.getBlockSize();
                 int posY = y*GameScene.getBlockSize();
-                if(blocks[x][y].isSolid())
-                    rec.add(new Rectangle(posX, posY, GameScene.getBlockSize(), GameScene.getBlockSize()));
+                if(x != 0 && y != 0 && x != CHUNK_WIDTH-1 && y != CHUNK_HEIGHT-1)
+                    if(blocks[x-1][y].isSolid()
+                        && blocks[x+1][y].isSolid()
+                        && blocks[x][y+1].isSolid()
+                        && blocks[x][y-1].isSolid())
+                        continue;
+
+                if(blocks[x][y].isSolid()){
+                    Rectangle bound = new Rectangle(posX, posY, GameScene.getBlockSize(), GameScene.getBlockSize());
+                    if(Scene.getCurrentScene() != null){
+                        bounds.add(bound);
+                    }
+
+                }
             }
         }
 
-        return rec;
     }
 
     @Override

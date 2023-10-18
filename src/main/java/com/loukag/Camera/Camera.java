@@ -1,5 +1,10 @@
 package com.loukag.Camera;
 
+import com.loukag.Scene.GameScene;
+import com.loukag.Scene.Scene;
+
+import java.awt.*;
+
 public class Camera {
     private int posX, posY;
 
@@ -42,6 +47,16 @@ public class Camera {
     public void setPosSmooth(int x, int y, int smoothness){
         this.posX = (posX * (smoothness - 1) + x) / smoothness;
         this.posY = (posY * (smoothness - 1) + y) / smoothness;
+    }
+
+    public boolean isOnCamera(Rectangle rec){
+        Rectangle camera = new Rectangle(posX, posY, Scene.getScreenW(), Scene.getScreenH());
+        return camera.intersects(rec);
+    }
+
+    public boolean isOnCamera(int x, int y){
+        Rectangle camera = new Rectangle(posX, posY, Scene.getScreenW(), Scene.getScreenH());
+        return camera.contains(x,y);
     }
 
     /**

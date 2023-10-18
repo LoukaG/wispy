@@ -2,6 +2,7 @@ package com.loukag.GameObject;
 
 import com.loukag.GameObject.Features.Collider;
 import com.loukag.Listener.KeyboardListener;
+import com.loukag.Main;
 import com.loukag.Map.Block.Block;
 import com.loukag.Scene.GameScene;
 import com.loukag.Scene.Scene;
@@ -108,13 +109,16 @@ public class Player extends MovingObject implements Collider {
             canJump = false;
         }
 
+        if(KeyboardListener.isKeyPressed(114))
+            Main.DEBUG = !Main.DEBUG;
+
 
 
     }
 
     @Override
     public ArrayList<Rectangle> getBounds() {
-        bounds.get(0).setLocation(getScreenX(), getScreenY());
+        bounds.set(0, new Rectangle(getScreenX(), getScreenY(), GameScene.getBlockSize(), GameScene.getBlockSize() * 2));
         return bounds;
     }
 
